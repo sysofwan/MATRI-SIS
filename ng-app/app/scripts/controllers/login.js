@@ -8,10 +8,14 @@
  * Controller of the matriSisApp
  */
 angular.module('matriSisApp')
-  .controller('LoginCtrl', function ($scope) {
-    $scope.awesomeThings = [
-      'HTML5 Boilerplate',
-      'AngularJS',
-      'Karma'
-    ];
+  .controller('LoginCtrl', function ($scope, $location, session, $routeParams) {
+    
+    $scope.login = function() {
+      session.login($scope.email, $scope.password)
+        .then(function() {
+          $location.url($routeParams.redirectTo || '/admin');
+        }, function(req) {
+          $scope.errorMessage = req.data.message;
+        });
+    };
   });

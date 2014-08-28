@@ -8,10 +8,12 @@
  * Controller of the matriSisApp
  */
 angular.module('matriSisApp')
-  .controller('SignupCtrl', function ($scope, User) {
+  .controller('CreateAdminCtrl', function ($scope, User, $location) {
     var user = $scope.user = new User();
 
     $scope.createUser = function() {
-      user.$save();
+      user.$save(function() {
+        $location.url('/admin/list');
+      });
     };
   });

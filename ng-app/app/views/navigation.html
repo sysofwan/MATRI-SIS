@@ -1,8 +1,20 @@
-<nav class="navbar navbar-default" role="navigation">
-  <div class="container-fluid">
-    <!-- Brand and toggle get grouped for better mobile display -->
-    <div class="navbar-header">
-      <a class="navbar-brand" href="#">SMP-MATRI</a>
-    </div>
-  </div><!-- /.container-fluid -->
+<nav class="navbar navbar-default" ng-controller="NavigationCtrl" role="navigation">
+	<div class="container-fluid">
+		<!-- Brand and toggle get grouped for better mobile display -->
+		<div class="navbar-header">
+			<a class="navbar-brand" href="#">SMP-MATRI</a>
+		</div>
+
+		<div class="collapse navbar-collapse">
+			<ul class="nav navbar-nav">
+				<li ng-class="" ng-show="currentUser"><a href="/#/admin">Admin home</a></li>
+				<li ng-class="" ng-show="currentUser"><a href="/#/admin/upload">Upload records</a></li>
+				<li ng-class="" ng-show="currentUser"><a href="/#/admin/list">Admin list</a></li>
+			</ul>
+			<ul class="nav navbar-nav navbar-right">
+				<li ng-class="" ng-show="currentUser" ng-click="logout()"><a href="">Logout</a></li>
+			</ul>
+			<p class="navbar-text navbar-right" ng-show="currentUser">Logged in as <a href="#" class="navbar-link">{{ currentUser.email }}</a></p>
+		</div>
+	</div><!-- /.container-fluid -->
 </nav>
