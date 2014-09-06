@@ -8,10 +8,17 @@
  * Controller of the matriSisApp
  */
 angular.module('matriSisApp')
-  .controller('RecordUploadCtrl', function ($scope) {
-    $scope.awesomeThings = [
-      'HTML5 Boilerplate',
-      'AngularJS',
-      'Karma'
-    ];
+  .controller('RecordUploadCtrl', function($scope, billingRecordsParser) {
+
+    $scope.payments = [];
+    var records;
+
+    $scope.onFileSelect = function(files) {
+      var file = files[0];
+      records = billingRecordsParser(file);
+      records.getData().then(function(data) {
+        $scope.payments = data;
+      });
+    };
+
   });

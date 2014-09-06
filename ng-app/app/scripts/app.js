@@ -74,6 +74,8 @@ angular
 
 .constant('_', window._)
 
+.constant('Papa', window.Papa)
+
 .run(function($rootScope, session, $location) {
   $rootScope.$on('$routeChangeStart', function(event, next) {
     if (next.requireLogin && !session.isLoggedIn()) {

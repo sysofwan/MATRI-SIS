@@ -5,8 +5,40 @@
 		</div>
 		<div class="panel panel-default">
 			<div class="panel-body">
-				<div class="drop-box">Drop file here</div>
+				<div class="drop-box" ng-file-drop="onFileSelect($files)"
+				ng-file-drag-over-class="drag-over" ng-file-select="onFileSelect($files)">
+				<div class="default-text">Drop file here or click to choose file</div>
+				<div class="drop-text">Drop file here</div>
 			</div>
 		</div>
 	</div>
+
+	<div class="panel panel-info" ng-show="payments.length">
+		<div class="panel-heading preview-panel">
+			<h3 class="preview-title panel-title">Previewing filename.csv</h3>
+			<button class="btn btn-default pull-right">Upload</button>
+			<div class="clearfix"></div>
+		</div>
+		<table class="table">
+			<thead>
+				<tr>
+					<th>Nama</th>
+					<th>No. KP</th>
+					<th>No. Bill</th>
+					<th>Tarikh</th>
+					<th>Yuran</th>
+					<th>Bayaran</th>
+				</tr>
+			</thead>
+			<tr ng-repeat="payment in payments">
+				<td>{{ payment.name }}</td>
+				<td>{{ payment.nric }}</td>
+				<td>{{ payment.billId }}</td>
+				<td>{{ payment.date }}</td>
+				<td>{{ payment.fee }}</td>
+				<td>{{ payment.paymentAmount }}</td>
+			</tr>
+		</table>
+	</div>
+</div>
 </div>

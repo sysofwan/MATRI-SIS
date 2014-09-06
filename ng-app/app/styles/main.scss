@@ -100,6 +100,10 @@ form.form-page {
   }
 }
 
+.container {
+  padding-bottom: 40px;
+}
+
 .main-title {
   .logo {
     float: right;
@@ -117,4 +121,28 @@ form.form-page {
   font-weight: bold;
   color: #969696;
   font-size: 1.3em;
+  cursor: pointer;
+
+  .drop-text {
+    display: none;
+  }
+
+  &.drag-over {
+    background-color: #E5F0FF;
+
+    .default-text {
+      display: none;
+    }
+
+    .drop-text {
+      display: block;
+    }
+  }
+}
+
+.preview-panel {
+  .preview-title {
+    float: left;
+    line-height: 32px;
+  }
 }
